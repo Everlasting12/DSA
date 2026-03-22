@@ -15,6 +15,7 @@ function countDigits(num) {
   return count;
 }
 
-countDigits(0); // 1
-countDigits(123); // 3
-countDigits(-4567); // 4
+console.log(countDigits(0)); // 1
+console.log(countDigits(123)); // 3
+console.log(countDigits(-4567)); // 4
+console.log(countDigits(100000)); // 6
