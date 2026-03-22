@@ -1,5 +1,5 @@
 function isPalindrome(num) {
-  if (Number.isNaN(num) || num < 0) {
+  if (num < 0) {
     return false;
   }
 
@@ -11,10 +11,7 @@ function isPalindrome(num) {
     reverseNum = reverseNum * 10 + reminder;
     num = Math.floor(num / 10);
   }
-  if (reverseNum !== copyNum) {
-    return false;
-  }
-  return true;
+  return reverseNum === copyNum;
 }
 
 console.log("299 is Palindrome ", isPalindrome(299));
