@@ -17,4 +17,4 @@ function maxProfit(prices) {
   return maxProfit;
 }
 
-console.log(maxProfit([7, 1, 5, 3, 6, 4]));
+console.log(maxProfit([7, 150, 155, 1, 5, 3, 6, 4]));
