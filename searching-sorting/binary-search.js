@@ -1,20 +1,21 @@
-function binarySearch(arr, target) {
+function binarySearch(nums, target) {
   let left = 0;
-  let right = arr.length - 1;
+  let right = nums.length - 1;
 
   while (right >= left) {
-    let mid = Math.floor((left + right) / 2);
-    if (target === arr[mid]) {
-      return mid;
-    } else if (target < arr[mid]) {
-      right = mid - 1;
+    let middle = Math.floor((right + left) / 2);
+
+    if (target === nums[middle]) {
+      return middle;
+    } else if (target < nums[middle]) {
+      right = middle - 1;
     } else {
-      left = mid + 1;
+      left = middle + 1;
     }
   }
+
   return -1;
 }
-
 console.log(
   "binarySearch",
   binarySearch([0, 2, 4, 7, 9, 10, 18, 20, 34, 45], 19),
