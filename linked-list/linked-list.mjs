@@ -1,4 +1,4 @@
-class LLNode {
+export class LLNode {
     constructor(value) {
         this.value = value;
         this.next = null
