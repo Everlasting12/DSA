@@ -6,7 +6,7 @@ class LLNode {
 }
 
 
-class LinkedList {
+export class LinkedList {
     constructor() {
         this.head = null;
         this.tail = null;
@@ -67,6 +67,18 @@ class LinkedList {
         }
 
         return curr.value;
+    }
+    getNode(val) {
+
+        let curr = this.head;
+        while (curr) {
+            if (curr.value == val) {
+                return curr
+            }
+            curr = curr.next
+        }
+
+        return null;
     }
     addAtHead(val) {
         const node = new LLNode(val);
@@ -157,18 +169,18 @@ class LinkedList {
 
 }
 
-const ll = new LinkedList();
-ll.addAtTail(10)
-ll.addAtTail(12)
-ll.addAtTail(14)
-ll.addAtTail(16)
-ll.addAtTail(18)
-ll.addAtTail(20)
-ll.addAtTail(22)
-ll.print()
-// ll.addAtIndex(3)
-ll.deleteAtIndex(3)
-// 0     1     2     3     4     5     6
-// 10 -> 12 -> 14 -> 16 -> 18 -> 20 -> 22
-console.log("3rd index element: ", ll.get(3))
-console.log("3rd index element: ", ll._get(3))
+// const ll = new LinkedList();
+// ll.addAtTail(10)
+// ll.addAtTail(12)
+// ll.addAtTail(14)
+// ll.addAtTail(16)
+// ll.addAtTail(18)
+// ll.addAtTail(20)
+// ll.addAtTail(22)
+// ll.print()
+// // ll.addAtIndex(3)
+// ll.deleteAtIndex(3)
+// // 0     1     2     3     4     5     6
+// // 10 -> 12 -> 14 -> 16 -> 18 -> 20 -> 22
+// console.log("3rd index element: ", ll.get(3))
+// console.log("3rd index element: ", ll._get(3))
