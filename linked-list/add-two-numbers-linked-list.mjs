@@ -42,9 +42,13 @@ function addTwoLinkedList(l1, l2) {
 l1.print()
 l2.print()
 let res = addTwoLinkedList(l1.head, l2.head);
-let resArr = []
-while (res) {
-    resArr.push(res.value)
-    res = res.next
+printNodes(res)
+
+export function printNodes(node) {
+    let nodeArr = []
+    while (node) {
+        nodeArr.push(node.value)
+        node = node.next
+    }
+    console.log("Linked List:", nodeArr.join(' -> '))
 }
-console.log("Linked List:", resArr.join(' -> '))
