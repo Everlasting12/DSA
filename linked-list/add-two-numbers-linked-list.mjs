@@ -1,4 +1,5 @@
 import { LinkedList, LLNode } from "./linked-list.mjs";
+import { printNodes } from "./print-linked-list-node.mjs";
 
 const l1 = new LinkedList();
 l1.addAtTail(9)
@@ -43,12 +44,3 @@ l1.print()
 l2.print()
 let res = addTwoLinkedList(l1.head, l2.head);
 printNodes(res)
-
-export function printNodes(node) {
-    let nodeArr = []
-    while (node) {
-        nodeArr.push(node.value)
-        node = node.next
-    }
-    console.log("Linked List:", nodeArr.join(' -> '))
-}
