@@ -1,5 +1,5 @@
 function balancedStringSplit(s){
-  let L = R = count = 0;
+  let L = 0,R = 0,count = 0;
 
   for(let i = 0; i < s.length; i++){
     if(s[i] == "R"){
