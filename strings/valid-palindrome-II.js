@@ -1,17 +1,17 @@
 function isPalindrome(s){
     
     s = s.toLowerCase();
-    let l=0, r=s.length-1;
+    let i=0, j=s.length-1;
     
     while(i<j){
         if(!s[i].match(/[a-z0-9]/i)){
             ++i;
         }
-        else if(!s[j].match(/[a-z0-9]/j)){
+        else if(!s[j].match(/[a-z0-9]/i)){
             --j;
         }
         else if(s[i] === s[j]){
-            --i;
+            ++i;
             --j;
         }
         else{
