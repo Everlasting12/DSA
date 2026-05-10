@@ -7,21 +7,13 @@ function isIsomorphic(s, t) {
         let charS = s[i];
         let charT = t[i];
 
-
-        if (sToT.has(charS)) {
-            if (sToT.get(charS) !== charT) {
+        if (sToT.has(charS) || tToS.has(charT)) {
+            if (sToT.get(charS) !== charT || tToS.get(charT) !== charS) {
                 return false;
             }
         }
         else {
             sToT.set(charS, charT)
-        }
-
-        if (tToS.has(charT)) {
-            if (tToS.get(charT) !== charS) {
-                return false
-            }
-        } else {
             tToS.set(charT, charS);
         }
 
@@ -29,10 +21,7 @@ function isIsomorphic(s, t) {
     return true;
 }
 
-// 
-let s = "egg", t = "add";
-// let s = "f11", t = "b23";
-// let s = "paper", t = "title"
-// let s = "ab", t = "cc"
-
-console.log('isIsomorphic(s, t)', isIsomorphic(s, t))
+console.log('isIsomorphic(s, t)', isIsomorphic("egg", "add"))
+console.log('isIsomorphic(s, t)', isIsomorphic("f11", "b23"))
+console.log('isIsomorphic(s, t)', isIsomorphic("paper", "title"))
+console.log('isIsomorphic(s, t)', isIsomorphic("ab", "cc"))
