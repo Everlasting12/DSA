@@ -1,4 +1,4 @@
-function romanToInt(s: string): number {
+function romanToInt(s) {
     const map = {
         'I': 1,
         'V': 5,
@@ -8,9 +8,9 @@ function romanToInt(s: string): number {
         'D': 500,
         'M': 1000,
     };
-    return s.split("").map((i)=> map[i]).reduce((sum, currChar, index, arr) => {
+    return s.split("").map((i) => map[i]).reduce((sum, currChar, index, arr) => {
         let nextChar = arr[index + 1];
-        if(currChar < nextChar) {
+        if (currChar < nextChar) {
             sum = sum - currChar
         } else {
             sum = sum + currChar
