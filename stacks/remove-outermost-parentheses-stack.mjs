@@ -23,6 +23,8 @@ function removeOutermostParenthese(s) {
     return result;
 }
 
+// Note: you can replace the stack and use a counter like level
+
 console.log('removeOutermostParenthese 1', removeOutermostParenthese("(()())(())"))
 console.log('removeOutermostParenthese 2', removeOutermostParenthese("(()())(())(()(()))"))
 console.log('removeOutermostParenthese 3', removeOutermostParenthese("()()"))
