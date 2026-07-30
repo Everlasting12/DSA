@@ -9,20 +9,20 @@ const __dirname = path.dirname(__filename);
 /**
  * Convert title → kebab-case filename
  */
-function generateFileName(title) {
+function generateFileName(title, extension) {
     return title
         .toLowerCase()
         .replaceAll(/\s+/g, '-')   // spaces → hyphen
         .replaceAll(/[^a-z0-9\-]/g, '') // remove special chars (optional)
-        + '.mjs';
+        + extension;
 }
 
 /**
  * Create file in given directory
  */
-async function createFile(title, folderPath) {
+async function createFile(title, folderPath, extension) {
     try {
-        const fileName = generateFileName(title);
+        const fileName = generateFileName(title, extension);
 
         // Resolve full directory path
         const fullDirPath = path.resolve(__dirname, folderPath);
@@ -47,7 +47,11 @@ async function createFile(title, folderPath) {
 }
 
 // Example usage
-const title = "Rotate Lists";
-const folder = "./linked-list/";
+// const title = "Static Polymorphism";
+// const extension = ".cpp"
+// const folder = "./LLD/code/";
+const title = "Rotting Oranges";
+const extension = ".mjs"
+const folder = "./stacks/";
 
-createFile(title, folder);
+createFile(title, folder, extension);
