@@ -50,8 +50,8 @@ async function createFile(title, folderPath, extension) {
 // const title = "Static Polymorphism";
 // const extension = ".cpp"
 // const folder = "./LLD/code/";
-const title = "Sliding Window Maximum";
+const title = "pre-order-traversal-recursive-approach";
 const extension = ".mjs"
-const folder = "./two-pointers-and-sliding-window/";
+const folder = "./trees/binary-tree/";
 
 createFile(title, folder, extension);
