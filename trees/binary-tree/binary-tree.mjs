@@ -35,6 +35,23 @@ export class BinaryTree {
 
         return ans;
     }
+    // Traversals
+    preorderIterative() {
+        // root -> left -> right 
+        let ans = [];
+        let stack = [];
+        stack.push(this.root);
+        while (stack.length) {
+            let curr = stack.pop();
+            if (curr) {
+                ans.push(curr.value);
+                curr?.right && stack.push(curr.right)
+                curr?.left && stack.push(curr.left)
+            }
+        }
+
+        return ans;
+    }
 
 
     inorderRecusrive() {
@@ -111,5 +128,6 @@ const bTree = new BinaryTree(
     )
 );
 console.log("Pre-Order Traversal -> ", bTree.preorderRecusrive());
+console.log("Pre-Order Traversal -> ", bTree.preorderIterative());
 console.log("In-Order Traversal -> ", bTree.inorderRecusrive());
 console.log("Post-Order Traversal -> ", bTree.postorderRecusrive());
