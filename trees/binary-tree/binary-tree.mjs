@@ -79,7 +79,7 @@ export class BinaryTree {
                 stack.push(curr);
                 curr = curr.left;
             }
-            curr = curr.pop();
+            curr = stack.pop();
             ans.push(curr.value);
             curr = curr.right;
         }
@@ -149,3 +149,4 @@ console.log("Pre-Order Traversal -> ", bTree.preorderRecusrive());
 console.log("Pre-Order Traversal -> ", bTree.preorderIterative());
 console.log("In-Order Traversal -> ", bTree.inorderRecusrive());
 console.log("Post-Order Traversal -> ", bTree.postorderRecusrive());
+console.log("In-order Traversal -> ", bTree.inorderIterative());
