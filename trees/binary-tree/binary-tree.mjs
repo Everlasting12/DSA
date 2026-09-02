@@ -68,6 +68,24 @@ export class BinaryTree {
         traversal(this.root);
         return ans;
     }
+    
+    inorderIterative(){
+        // left -> root -> right
+        let ans = [];
+        let stack = [];
+        let curr = this.root;
+        while(curr || stack.length) {
+            while(curr){
+                stack.push(curr);
+                curr = curr.left;
+            }
+            curr = curr.pop();
+            ans.push(curr.value);
+            curr = curr.right;
+        }
+        
+        return ans;
+    }
     postorderRecusrive() {
         //   left -> right -> root
         let ans = [];
