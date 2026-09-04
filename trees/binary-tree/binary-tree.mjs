@@ -68,14 +68,14 @@ export class BinaryTree {
         traversal(this.root);
         return ans;
     }
-    
-    inorderIterative(){
+
+    inorderIterative() {
         // left -> root -> right
         let ans = [];
         let stack = [];
         let curr = this.root;
-        while(curr || stack.length) {
-            while(curr){
+        while (curr || stack.length) {
+            while (curr) {
                 stack.push(curr);
                 curr = curr.left;
             }
@@ -83,7 +83,7 @@ export class BinaryTree {
             ans.push(curr.value);
             curr = curr.right;
         }
-        
+
         return ans;
     }
     postorderRecusrive() {
@@ -97,6 +97,52 @@ export class BinaryTree {
             ans.push(curr.value);
         }
         traversal(this.root);
+
+        return ans;
+    }
+
+    postorderIterativeTwoStacks() {
+        let s1 = [this.root];
+        let s2 = [];
+
+        while (s1.length) {
+            let curr = s1.pop();
+            curr && s2.push(curr)
+            curr.left && s1.push(curr.left);
+            curr.right && s1.push(curr.right);
+        }
+
+        let ans = []
+        while (s2.length) {
+            ans.push(s2.pop().value)
+        }
+
+        return ans;
+    }
+
+    postorderIterativeOneStack() {
+        let stack = [];
+        let curr = this.root;
+        let lastVisited = null;
+        let ans = [];
+
+        while (stack.length || curr) {
+            while (curr) {
+                stack.push(curr);
+                curr = curr.left;
+            }
+
+            let peekNode = stack.at(-1);
+
+            if (peekNode.right && peekNode.right !== lastVisited) {
+                curr = peekNode.right;
+            }
+            else {
+                ans.push(peekNode.value);
+                // pop it and store it in lastVisited
+                lastVisited = stack.pop();
+            }
+        }
 
         return ans;
     }
@@ -148,5 +194,7 @@ const bTree = new BinaryTree(
 console.log("Pre-Order Traversal -> ", bTree.preorderRecusrive());
 console.log("Pre-Order Traversal -> ", bTree.preorderIterative());
 console.log("In-Order Traversal -> ", bTree.inorderRecusrive());
-console.log("Post-Order Traversal -> ", bTree.postorderRecusrive());
 console.log("In-order Traversal -> ", bTree.inorderIterative());
+console.log("Post-Order Traversal -> ", bTree.postorderRecusrive());
+console.log("Post-order iterative Traversal -> ", bTree.postorderIterativeTwoStacks());
+console.log("Post-order iterative Traversal 2 -> ", bTree.postorderIterativeOneStack());
