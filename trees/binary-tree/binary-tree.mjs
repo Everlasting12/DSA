@@ -146,7 +146,66 @@ export class BinaryTree {
 
         return ans;
     }
-    // levelOrder() { }
+
+    levelOrderIterative() {
+        if (!this.root) return [];
+        let ans = [];
+        let q = [this.root];
+        while (q.length) {
+            let curr = q.shift();
+            if (curr) {
+                curr.left && q.push(curr.left);
+                curr.right && q.push(curr.right);
+                ans.push(curr.value);
+            }
+        }
+
+        return ans;
+    }
+
+    levelOrderIterativeLevelGrouping() {
+        if (!this.root) return [];
+        let ans = [];
+        let q = [this.root];
+        let front = 0;
+        while (front < q.length) {
+
+            let levelArr = [];
+            let levelSize = q.length - front;
+            while (levelSize) {
+
+                let curr = q.shift();
+                curr?.left && q.push(curr.left);
+                curr?.right && q.push(curr.right);
+                curr && levelArr.push(curr.value);
+                levelSize--
+            }
+            ans.push(levelArr);
+        }
+        return ans;
+    }
+
+    levelOrderRecursiveLevelGrouping() {
+        if (!this.root) return [];
+        let ans = [];
+
+        function traverse(curr, level) {
+
+            if (!ans[level]) {
+                ans[level] = []
+            }
+
+            ans[level].push(curr.value)
+
+            curr.left && traverse(curr.left, level + 1);
+            curr.right && traverse(curr.right, level + 1);
+        }
+        traverse(this.root, 0);
+
+        return ans;
+    }
+
+
 
     // Properties
     // height() { }
@@ -198,3 +257,6 @@ console.log("In-order Traversal -> ", bTree.inorderIterative());
 console.log("Post-Order Traversal -> ", bTree.postorderRecusrive());
 console.log("Post-order iterative Traversal -> ", bTree.postorderIterativeTwoStacks());
 console.log("Post-order iterative Traversal 2 -> ", bTree.postorderIterativeOneStack());
+console.log("Level-order Traversal -> ", bTree.levelOrderIterative());
+console.log("Level-order Group Traversal -> ", bTree.levelOrderIterativeLevelGrouping());
+console.log("Level-order Group Traversal -> ", bTree.levelOrderRecursiveLevelGrouping());
