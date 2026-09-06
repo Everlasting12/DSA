@@ -254,6 +254,9 @@ const bTree = new BinaryTree(
         )
     )
 );
+
+/**
+
 console.log("Pre-Order Traversal -> ", bTree.preorderRecusrive());
 console.log("Pre-Order Traversal -> ", bTree.preorderIterative());
 console.log("In-Order Traversal -> ", bTree.inorderRecusrive());
@@ -265,3 +268,5 @@ console.log("Level-order Traversal -> ", bTree.levelOrderIterative());
 console.log("Level-order Group Traversal -> ", bTree.levelOrderIterativeLevelGrouping());
 console.log("Level-order Group Traversal -> ", bTree.levelOrderRecursiveLevelGrouping());
 console.log("Max Depth of the tree -> ", bTree.maxDepth(bTree.root));
+
+*/
