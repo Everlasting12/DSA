@@ -205,11 +205,15 @@ export class BinaryTree {
         return ans;
     }
 
+    maxDepth(root = null) {
+        if (!root) return 0;
+
+        return 1 + Math.max(this.maxDepth(root.left), this.maxDepth(root.right));
+    }
 
 
     // Properties
     // height() { }
-    // depth() { }
     // size() { }
 
     // Questions
@@ -260,3 +264,4 @@ console.log("Post-order iterative Traversal 2 -> ", bTree.postorderIterativeOneS
 console.log("Level-order Traversal -> ", bTree.levelOrderIterative());
 console.log("Level-order Group Traversal -> ", bTree.levelOrderIterativeLevelGrouping());
 console.log("Level-order Group Traversal -> ", bTree.levelOrderRecursiveLevelGrouping());
+console.log("Max Depth of the tree -> ", bTree.maxDepth(bTree.root));
