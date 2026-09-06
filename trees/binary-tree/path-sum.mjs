@@ -31,7 +31,8 @@ const bTree = new BinaryTree(
     )
 );
 
-function pathSum(root, targetSum) {
+// top down approach
+function pathSumTopDown(root, targetSum) {
     let ans = false;
     if (!root) return ans;
 
@@ -50,4 +51,17 @@ function pathSum(root, targetSum) {
     return ans;
 }
 
-console.log("Path sum -> ", pathSum(bTree.root, 22));
+// bottom up approach
+function pathSumBottomUp(root, targetSum) {
+    if (!root) return false;
+
+    if (!(root.left && root.right) && targetSum === root.value) return true;
+
+    let leftTreeHasPathSum = pathSumBottomUp(root.left, targetSum - root.value);
+    let rightTreeHasPathSum = pathSumBottomUp(root.right, targetSum - root.value);
+
+    return leftTreeHasPathSum || rightTreeHasPathSum;
+}
+
+console.log("Path sum top-down -> ", pathSumTopDown(bTree.root, 22));
+console.log("Path sum botto-up-> ", pathSumBottomUp(bTree.root, 22));
