@@ -206,6 +206,35 @@ export class BinaryTree {
         return ans;
     }
 
+    zigZagLevelOrderIterativeLevelGrouping() {
+        if (!this.root) return [];
+        let ans = [];
+        let q = [this.root];
+        let level = 0;
+        while (q.length) {
+            let levelSize = q.length;
+            let levelArr = [];
+
+            while (levelSize) {
+                let node = q.shift();
+                if (level % 2 == 0) {
+                    levelArr.push(node.value);
+                }
+                else {
+                    levelArr.unshift(node.value);
+                }
+                node.left && q.push(node.left);
+                node.right && q.push(node.right);
+                levelSize--
+            }
+
+            ans.push(levelArr);
+            level++
+        }
+
+        return ans;
+    }
+
     levelOrderRecursiveLevelGrouping() {
         if (!this.root) return [];
         let ans = [];
@@ -290,5 +319,6 @@ console.log("Level-order Group Traversal -> ", bTree.levelOrderIterativeLevelGro
 console.log("Level-order Group Traversal -> ", bTree.levelOrderRecursiveLevelGrouping());
 console.log("Max Depth of the tree -> ", bTree.maxDepth(bTree.root));
 console.log("level Order Recursive the tree -> ", bTree.levelOrderRecursive(bTree.root));
+console.log("ZigZag Order Recursive the tree -> ", bTree.zigZagLevelOrderIterativeLevelGrouping(bTree.root));
 
 */
