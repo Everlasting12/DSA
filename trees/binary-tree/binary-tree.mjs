@@ -163,6 +163,27 @@ export class BinaryTree {
         return ans;
     }
 
+
+    levelOrderRecursive() {
+        if (!this.root) return [];
+
+        let ans = [];
+        let queue = [this.root];
+
+        function traverse() {
+            if (!queue.length) return;
+            const node = queue.shift();
+            ans.push(node.value);
+            if (node.left) queue.push(node.left);
+            if (node.right) queue.push(node.right);
+            traverse()
+        }
+
+        traverse();
+
+        return ans;
+    }
+
     levelOrderIterativeLevelGrouping() {
         if (!this.root) return [];
         let ans = [];
@@ -268,5 +289,6 @@ console.log("Level-order Traversal -> ", bTree.levelOrderIterative());
 console.log("Level-order Group Traversal -> ", bTree.levelOrderIterativeLevelGrouping());
 console.log("Level-order Group Traversal -> ", bTree.levelOrderRecursiveLevelGrouping());
 console.log("Max Depth of the tree -> ", bTree.maxDepth(bTree.root));
+console.log("level Order Recursive the tree -> ", bTree.levelOrderRecursive(bTree.root));
 
 */
